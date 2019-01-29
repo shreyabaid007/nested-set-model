@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Parent-Child</title>
+</head>
+
+<body>
+
+<table id="NestedTree1" style="width:100%">
+    {% if result %}
+    <tr>
+        <th>part</th>
+        <th>lft</th>
+        <th>rgt</th>
+    </tr>
+    {% for row in result %}
+    <tr>
+        <td> {{ row.part }}</td>
+        <td> {{ row.lft }}</td>
+        <td> {{ row.rgt }}</td>
+    </tr>
+    {% endfor %}
+    {% endif %}
+</table>
+
+<form method="POST">
+    <h3> Add </h3>
+    <input type="text" name="part1"> <p>is a new child of </p>
+    <input type="text" name="part2">
+
+    <h3> Find immediate children of </h3>
+    <input type="text" name="children">
+    {% for row1 in result1 %}
+        <p>{{ row1.Workers }}</p>
+    {% endfor %}
+
+    <h3> Find immediate parent of </h3>
+    <input type="text" name="parent">
+    {% for row2 in result2 %}
+        <p>{{ row2.Mgrs }}</p>
+    {% endfor %}
+
+    <input type="submit" name="hello_add">
+
+</form>
+
+</body>
+</html>
